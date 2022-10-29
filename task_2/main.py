@@ -89,7 +89,7 @@ for i in range(1,len(v)):
 
 #формируем необходимуе данные для записи в файл
 
-zagolovki='  DD.MM.YY   Time      HJD 24...     ' #создаем строку заголовков
+zagolovki=' DD.MM.YY   Time      HJD 24...     ' #создаем строку заголовков
 for i in range(len(filters)):
     zagolovki=zagolovki +'       '+ filters[i]
 zagolovki=zagolovki + '\n'
