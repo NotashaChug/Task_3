@@ -5,7 +5,7 @@ import numpy as np
 
 def cutX(x,y,d):  # cрез звезды по оси X
     Ox = list(range(x-d,x+d+1))
-    Oz = data[y][(x-d):(x+d)]
+    Oz = data[y][(x-d):(x+d+1)]
     plt.plot(Ox,Oz,'r-')
     plt.show()
 
@@ -26,13 +26,14 @@ def grafik_star_3d(x,y,d): #функция для 3Д графика
     #пространство заначений для х и y
     Ox=list(range(x-d,x+d+1))
     Oy=list(range(y-d,y+d+1))
+    X,Y=np.meshgrid(Ox,Oy)
 
-    Oz=np.zeros((len(Ox),len(Oy))) #заполняем данный массив значениями по оси Oz.
+    Z=np.zeros((len(Ox),len(Oy))) #заполняем данный массив значениями по оси Oz.
     for i in range(len(Oy)):      #как бы смотря на пл-ть xOy сверху
         for j in range(len(Ox)):  #точка (x-d,y-d) в левом верхнем углу
-            Oz[j][i]=data[Oy[i]][Ox[j]]
+            Z[j][i]=data[Oy[i]][Ox[j]]
 
-    ax.plot_surface(Ox,Oy,Oz)
+    ax.plot_surface(X,Y,Z)
     plt.show()
 
 
@@ -41,9 +42,7 @@ def grafik_star_3d(x,y,d): #функция для 3Д графика
 image = fits.open('v523cas60s-001.fit') #читаем файл
 data = image[0].data #вытаскиваем список числовых данных
 
-'''
+
 cutX(1024,1024,20)
 cutY(1024,1024,20)
-'''
-
-grafik_star_3d(1024,1024,2)
+grafik_star_3d(1024,1024,20)
