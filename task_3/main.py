@@ -21,7 +21,7 @@ def cutY(x,y,d):  # срез звезды по оси Y
     Oz=[]
     for i in range(y-d,y+d+1):
         Oz.append(data[i][x])
-
+        
     fig = plt.figure()  # создали пространство
     ax = plt.axes()
     title_cutY = 'Срез звезды с координатами (' + str(x) + ',' + str(y) + ') по оси Y'
@@ -45,7 +45,7 @@ def grafik_star_3d(x,y,d): #функция для 3Д графика
     Z=np.zeros((len(Ox),len(Oy))) #заполняем данный массив значениями по оси Oz.
     for i in range(len(Oy)):      #как бы смотря на пл-ть xOy сверху
         for j in range(len(Ox)):  #точка (x-d,y-d) в левом верхнем углу
-            Z[j][i]=data[Oy[i]][Ox[j]]
+            Z[i][j]=data[Oy[i]][Ox[j]]
 
     ax.plot_surface(X,Y,Z,cmap='cividis')
     plt.show()
