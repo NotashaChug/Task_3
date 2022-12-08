@@ -55,8 +55,14 @@ def grafik_star_3d(x,y,d): #функция для 3Д графика
 
 image = fits.open('v523cas60s-001.fit') #читаем файл
 data = image[0].data #вытаскиваем список числовых данных
+plt.imshow(data, cmap='gray',vmin=1E3, vmax=2E3) #исходное изображение
+plt.colorbar()
+plt.show()
 
+koordinat=input('Введите координаты интересующей звезды:').split()
+x=int(koordinat[0])
+y=int(koordinat[1])
 
-cutX(1024,1024,20)
-cutY(1024,1024,20)
-grafik_star_3d(1024,1024,20)
+cutX(x,y,30)
+cutY(x,y,30)
+grafik_star_3d(x,y,30)
